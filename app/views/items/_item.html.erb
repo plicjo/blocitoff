@@ -1,4 +1,5 @@
-<p>
+<p id="item_#{item.id}">
   <strong>Name: </strong></s><%= item.name %>
   <strong>User: </strong><%= item.user.email %>
+<%= link_to 'Delete', user_item_path(item.user, item), { method: :delete, remote: true } %>
 </p>

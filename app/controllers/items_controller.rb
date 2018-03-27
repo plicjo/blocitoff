@@ -10,4 +10,14 @@ class ItemsController < ApplicationController
       redirect_to current_user
     end
   end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    flash[:alert] = 'Item destroyed!'
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) }
+      format.js {}
+    end
+  end
 end
